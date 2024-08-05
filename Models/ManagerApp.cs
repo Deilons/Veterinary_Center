@@ -318,6 +318,20 @@ public class ManagerApp
 
         return newCat;
     }
-    
+
+    public static void ShowHeader()
+    {
+        Console.WriteLine("Welcome to the Manager App");
+    }
+
+    public static void ShowFooter()
+    {
+        Console.WriteLine("Thank you for using the Manager App");
+    }
+
+    public static void ShowSeparator()
+    {
+        Console.WriteLine("----------------------------------------------------");
+    }
 
 }
