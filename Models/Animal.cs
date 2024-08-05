@@ -47,5 +47,8 @@ public abstract class Animal
         return ageInMonths;
     }
 
-    
+    public void CastrateAnimal()
+    {
+        IsCastrated = true;
+    }
 }
