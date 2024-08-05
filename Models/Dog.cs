@@ -41,7 +41,6 @@ public class Dog : Animal
         Breed: {Breed}
         Color: {Color}
         WeightInKg: {WeightInKg}
-        Castrated: {IsCastrated}
         BreedingStatus: {BreedingStatus}
         Temperament: {Temperament}
         MicrochipNumber: {MicrochipNumber}
@@ -54,23 +53,14 @@ public class Dog : Animal
 
     public void Hairdress()
     {
-        /*
-            Console.WriteLine("Enter the Id of the animal you want to hairdress");
-            int AnimalId = int.Parse(Console.ReadLine());
-
-            if (Id == AnimalId)
-            {
-                if (CoatType == "short" || CoatType == "no hair")
-                {
-                    Console.WriteLine("The animal does not have enough hair to be hairdressed");
-                }
-                else
-                {
-                    Console.WriteLine("Animal hairdress successfully");
-                    CoatType = "short";
-                }
-            }
-        */
+        if (CoatType == "short" || CoatType == "no hair")
+        {
+            Console.WriteLine("The animal does not have enough hair to be hairdressed");
+        }
+        else
+        {
+            Console.WriteLine("Animal hairdress successfully");
+            CoatType = "Corto";
+        }
     }
-
 }

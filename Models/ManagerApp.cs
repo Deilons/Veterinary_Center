@@ -34,7 +34,8 @@ public class ManagerApp
         {
             Console.WriteLine("The animal cannot be born in the future, please enter a valid birth date");
             birthDate = DateOnly.Parse(Console.ReadLine());
-        } else if ( birthDate.GetType() != typeof(DateOnly))
+        }
+        else if (birthDate.GetType() != typeof(DateOnly))
         {
             while (birthDate.GetType() != typeof(DateOnly))
             {
@@ -217,7 +218,8 @@ public class ManagerApp
         {
             Console.WriteLine("The animal cannot be born in the future, please enter a valid birth date");
             birthDate = DateOnly.Parse(Console.ReadLine());
-        } else if ( birthDate.GetType() != typeof(DateOnly))
+        }
+        else if (birthDate.GetType() != typeof(DateOnly))
         {
             while (birthDate.GetType() != typeof(DateOnly))
             {

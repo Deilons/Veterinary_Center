@@ -79,7 +79,8 @@ public class VeterinaryClinic
                 Console.WriteLine("The birth date cannot be in the future, please enter a valid birth date");
                 newBirthDate = DateOnly.Parse(Console.ReadLine());
             }
-        }else if ( newBirthDate.GetType() != typeof(DateOnly))
+        }
+        else if (newBirthDate.GetType() != typeof(DateOnly))
         {
             while (newBirthDate.GetType() != typeof(DateOnly))
             {
@@ -281,8 +282,8 @@ public class VeterinaryClinic
             }
         }
 
-        catToUpdate.SetName(newName);   
-        
+        catToUpdate.SetName(newName);
+
 
         Console.WriteLine("Enter the new birth date of the cat in the format dd/mm/yyyy");
         DateOnly newBirthDate = DateOnly.Parse(Console.ReadLine());
@@ -290,7 +291,8 @@ public class VeterinaryClinic
         {
             Console.WriteLine("The cat cannot be born in the future, please enter a valid birth date");
             newBirthDate = DateOnly.Parse(Console.ReadLine());
-        } else if ( newBirthDate.GetType() != typeof(DateOnly))
+        }
+        else if (newBirthDate.GetType() != typeof(DateOnly))
         {
             while (newBirthDate.GetType() != typeof(DateOnly))
             {
@@ -300,7 +302,7 @@ public class VeterinaryClinic
         }
 
         catToUpdate.SetBirthDate(newBirthDate);
-        
+
 
         Console.WriteLine("Enter the new breed for the cat:");
         string newBreed = Console.ReadLine();
@@ -474,7 +476,7 @@ public class VeterinaryClinic
     }
 
     public void ShowAnimalByName(string PatientName)
-    {   
+    {
         foreach (var cat in Cats)
         {
             if (cat.GetName() == PatientName)
