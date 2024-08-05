@@ -243,4 +243,12 @@ public class VeterinaryClinic
 
     }
 
+    public void showALlDogs()
+    {
+        foreach (var dog in Dogs)
+        {
+            dog.ShowInfo();
+        }
+    }
+    
 }
