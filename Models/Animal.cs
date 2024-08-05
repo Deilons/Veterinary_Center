@@ -49,10 +49,20 @@ public abstract class Animal
         return ageInMonths;
     }
 
+    public int GetAgeInMonths()
+    {
+        return CalculateAgeInMonths();
+    }
+
     // methods to modify attributes
 
     public void CastrateAnimal()
-    {
+    {   
+        if (IsCastrated)
+        {
+            Console.WriteLine("The animal is already castrated");
+            return;
+        }
         IsCastrated = true;
     }
 

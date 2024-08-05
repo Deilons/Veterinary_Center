@@ -123,12 +123,36 @@ internal class Program
                     }
                     break;
 
+                case 11:
+                    Console.Clear();
+
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
                     ManagerApp.Continue();
                     break;
+
             }
         }
+        
+/*
+                    var cat = new Cat(1,"Fluffy", DateOnly.FromDateTime(DateTime.Now),"Domestic Short Hair", "Black", 8 , false, true, "long");
+                    
+                    cat.ShowInfo();
+
+                    cat.BasicReview();
+
+                    cat.CastrateAnimal();
+
+                    cat.Hairdress();
+
+                    cat.ShowInfo();
+
+                    cat.CastrateAnimal();
+                    
+                    Console.Write(cat.GetAgeInMonths());
+
+                    cat.ShowInfo();
+*/
         
     }
 }   

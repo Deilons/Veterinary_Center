@@ -344,11 +344,11 @@ public class ManagerApp
     }
 
     public void mostrargatos(List<Cat> cats)
-{
-    foreach (var item in cats)
     {
-        Console.WriteLine(item);
+        foreach (var item in cats)
+        {
+            Console.WriteLine(item);
+        }
     }
-}
 
 }

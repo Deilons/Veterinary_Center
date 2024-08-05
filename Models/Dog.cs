@@ -48,6 +48,17 @@ public class Dog : Animal
         CoatType: {CoatType}
         ");
     }
+    public void BasicReview()
+    {   
+        if (this.BreedingStatus == true)
+        {
+            Console.WriteLine("The animal is healthy");
+        }
+        else
+        {
+            Console.WriteLine("The animal is not healthy");
+        }
+    }
 
     // methods
 

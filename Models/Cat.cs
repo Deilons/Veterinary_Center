@@ -31,20 +31,32 @@ public class Cat : Animal
         Breed: {Breed}
         Color: {Color}
         WeightInKg: {WeightInKg}
+        IsCastrated: {IsCastrated}
         BreedingStatus: {BreedingStatus}
         FurLength: {FurLength}
         ");
+    }
+    public void BasicReview()
+    {   
+        if (this.BreedingStatus == true)
+        {
+            Console.WriteLine("The cat is healthy");
+        }
+        else
+        {
+            Console.WriteLine("The cat is not healthy");
+        }
     }
 
     public void Hairdress()
     {
         if (FurLength == "short" || FurLength == "no hair")
         {
-            Console.WriteLine("The animal does not have enough hair to be hairdressed");
+            Console.WriteLine("The cat does not have enough hair to be hairdressed");
         }
         else
         {
-            Console.WriteLine("Animal hairdress successfully");
+            Console.WriteLine("Hairdress successfully");
             FurLength = "Corto";
         }
     }
