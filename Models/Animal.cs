@@ -51,5 +51,9 @@ public abstract class Animal
     {
         IsCastrated = true;
     }
-    
+
+    public string GetId()
+    {
+        return Id.ToString();
+    }
 }
