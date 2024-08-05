@@ -59,6 +59,7 @@ public class VeterinaryClinic
 
     if (!string.IsNullOrWhiteSpace(newName))
     {
-        dogToUpdate.Name = newName;
+        dog
+        dogToUpdate.GetName() = newName;
     }
 }

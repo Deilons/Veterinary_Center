@@ -7,7 +7,8 @@ namespace Veterinary_Center.Models;
 
 public abstract class Animal
 {   
-    // attributes
+    // properties
+
     protected int Id { get; set; }
     protected string Name { get; set; }
     protected DateOnly BirthDate { get; set; }
@@ -28,7 +29,7 @@ public abstract class Animal
         IsCastrated = isCastrated;
     }
 
-    // properties
+    // methods
 
     public abstract void ShowInfo();
 
@@ -83,6 +84,46 @@ public abstract class Animal
     public double GetWeightInKg()
     {
         return WeightInKg;
+    }
+
+    public bool GetIsCastrated()
+    {
+        return IsCastrated;
+    }
+
+    public void SetId(int id)
+    {
+        Id = id;
+    }
+
+    public void SetName(string name)
+    {
+        Name = name;
+    }
+
+    public void SetBirthDate(DateOnly birthDate)
+    {
+        BirthDate = birthDate;
+    }
+
+    public void SetBreed(string breed)
+    {
+        Breed = breed;
+    }
+
+    public void SetColor(string color)
+    {
+        Color = color;
+    }
+
+    public void SetWeightInKg(double weightInKg)
+    {
+        WeightInKg = weightInKg;
+    }
+
+    public void SetIsCastrated(bool isCastrated)
+    {
+        IsCastrated = isCastrated;
     }
 
 }
