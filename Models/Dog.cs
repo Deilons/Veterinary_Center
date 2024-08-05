@@ -52,7 +52,24 @@ public class Dog : Animal
 
     public void Hairdress()
     {
-        Console.WriteLine("hairdressing");
+    /*
+        Console.WriteLine("Enter the Id of the animal you want to hairdress");
+        int AnimalId = int.Parse(Console.ReadLine());
+        
+        if (Id == AnimalId)
+        {
+            if (CoatType == "pelo corto" || CoatType == "Sin pelo")
+            {
+                Console.WriteLine("The animal does not have enough hair to be hairdressed");
+            }
+            else
+            {
+                Console.WriteLine("Animal hairdress successfully");
+                CoatType = "pelo corto";
+            }
+        }
+    */   
     }
+    
 
 }
