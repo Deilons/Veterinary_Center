@@ -35,15 +35,30 @@ public class VeterinaryClinic
         Cats.Add(newCat);
     }
 
-    public void UpdateDog(Dog dog)
+    public void UpdateDog()
+{
+    Console.WriteLine("Enter the ID of the dog you want to update:");
+    int dogId = int.Parse(Console.ReadLine());
+
+    if (dogId <= 0)
     {
-        Console.WriteLine("Enter the Id of the animal you want to update");
-        int AnimalId = int.Parse(Console.ReadLine());
-        
-        if (dog.GetId() == AnimalId)
-        {
-            
-        }
+        Console.WriteLine("Invalid dog ID. Please enter a valid ID.");
+        return;
     }
 
+    Dog dogToUpdate = Dogs.FirstOrDefault(dog => dog.GetId() == dogId);
+
+    if (dogToUpdate == null)
+    {
+        Console.WriteLine("Dog with the given ID not found. Please enter a valid ID.");
+        return;
+    }
+
+    Console.WriteLine("Enter the new name for the dog:");
+    string newName = Console.ReadLine();
+
+    if (!string.IsNullOrWhiteSpace(newName))
+    {
+        dogToUpdate.Name = newName;
+    }
 }

@@ -32,10 +32,11 @@ public abstract class Animal
 
     public abstract void ShowInfo();
 
-    protected void BasicReview()
+    protected virtual void BasicReview()
     {
-        Console.WriteLine($"idk");
+        Console.WriteLine("Animal basic review");
     }
+    
 
     protected int CalculateAgeInMonths()
     {
@@ -47,6 +48,8 @@ public abstract class Animal
         return ageInMonths;
     }
 
+    // methods to modify attributes
+
     public void CastrateAnimal()
     {
         IsCastrated = true;
@@ -56,4 +59,30 @@ public abstract class Animal
     {
         return Id;
     }
+
+    public string GetName()
+    {
+        return Name;
+    }
+
+    public DateOnly GetBirthDate()
+    {
+        return BirthDate;
+    }
+
+    public string GetBreed()
+    {
+        return Breed;
+    }
+
+    public string GetColor()
+    {
+        return Color;
+    }
+
+    public double GetWeightInKg()
+    {
+        return WeightInKg;
+    }
+
 }

@@ -253,7 +253,6 @@ public class Dog : Animal
 
         return newDog;
     }
-
-
+    
 
 }
