@@ -17,6 +17,7 @@ public class Dog : Animal
     public string BarkVolume { get; set; }
 
     public string CoatType { get; set; }
+    
 
     // constructor 
 
@@ -46,8 +47,12 @@ public class Dog : Animal
         CoatType: {CoatType}
         ");
     }
-    
+
     // methods
 
+    public void Hairdress()
+    {
+        Console.WriteLine("hairdressing");
+    }
 
 }
