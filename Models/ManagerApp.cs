@@ -8,7 +8,6 @@ namespace Veterinary_Center.Models;
 public class ManagerApp
 {
     public static int IdDogCounter = 0;
-
     public static int IdCatCounter = 0;
 
     public static Dog CreateDog()
@@ -323,7 +322,9 @@ public class ManagerApp
 
     public static void ShowHeader()
     {
-        Console.WriteLine("Welcome to the Manager App");
+        Console.WriteLine(@"
+                Welcome to the Manager App
+            ");
     }
 
     public static void ShowFooter()
@@ -334,6 +335,12 @@ public class ManagerApp
     public static void ShowSeparator()
     {
         Console.WriteLine("----------------------------------------------------");
+    }
+
+    public static void Continue()
+    {
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
     }
 
 }
