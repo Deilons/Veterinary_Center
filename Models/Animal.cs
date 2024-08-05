@@ -28,7 +28,7 @@ public abstract class Animal
         IsCastrated = isCastrated;
     }
 
-    // methods
+    // properties
 
     public abstract void ShowInfo();
 
@@ -46,4 +46,6 @@ public abstract class Animal
         }
         return ageInMonths;
     }
+
+    
 }
