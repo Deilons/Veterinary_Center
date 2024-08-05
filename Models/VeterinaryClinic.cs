@@ -443,6 +443,52 @@ public class VeterinaryClinic
         Console.WriteLine("Cat deleted successfully");
     }
 
-        
+    public void ShowAllPatients()
+    {
+        foreach (var cat in Cats)
+        {
+            Console.WriteLine(cat);
+        }
+        foreach (var dog in Dogs)
+        {
+            Console.WriteLine(dog);
+        }
+    }
 
+    public void ShowAnimals(string animalType)
+    {
+        if (animalType == "cat")
+        {
+            foreach (var cat in Cats)
+            {
+                Console.WriteLine(cat);
+            }
+        }
+        else if (animalType == "dog")
+        {
+            foreach (var dog in Dogs)
+            {
+                Console.WriteLine(dog);
+            }
+        }
+    }
+
+// show animal by id provicional
+    public void ShowAnimal(int idPatient)
+    {
+        foreach (var cat in Cats)
+        {
+            if (cat.GetId() == idPatient)
+            {
+                Console.WriteLine(cat);
+            }
+        }
+        foreach (var dog in Dogs)
+        {
+            if (dog.GetId() == idPatient)
+            {
+                Console.WriteLine(dog);
+            }
+        }
+    }
 }
