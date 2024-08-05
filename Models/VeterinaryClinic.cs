@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Veterinary_Center.Models;
 
 public class VeterinaryClinic
-{   
+{
     // properties
     public string Name { get; set; }
 
@@ -37,111 +37,118 @@ public class VeterinaryClinic
 
     // update dog
     public void UpdateDog()
-{
-    Console.WriteLine("Enter the ID of the dog you want to update:");
-    int dogId = int.Parse(Console.ReadLine());
-
-    if (dogId <= 0)
     {
-        Console.WriteLine("Invalid dog ID. Please enter a valid ID.");
-        return;
-    }
+        Console.WriteLine("Enter the ID of the dog you want to update:");
+        int dogId = int.Parse(Console.ReadLine());
 
-    Dog dogToUpdate = Dogs.FirstOrDefault(dog => dog.GetId() == dogId);
-
-    if (dogToUpdate == null)
-    {
-        Console.WriteLine("Dog with the given ID not found. Please enter a valid ID.");
-        return;
-    }
-
-    Console.WriteLine("Enter the new name for the dog:");
-    string newName = Console.ReadLine();
-
-    if (string.IsNullOrWhiteSpace(newName))
-    {
-        while (string.IsNullOrWhiteSpace(newName))
+        if (dogId <= 0)
         {
-            Console.WriteLine("The name cannot be empty, please enter a valid name");
-            newName = Console.ReadLine();
+            Console.WriteLine("Invalid dog ID. Please enter a valid ID.");
+            return;
         }
-    }
 
-    dogToUpdate.SetName(newName);
-    
-    Console.WriteLine("Enter the new birth date for the dog:");
-    DateOnly newBirthDate = DateOnly.Parse(Console.ReadLine());
+        Dog dogToUpdate = Dogs.FirstOrDefault(dog => dog.GetId() == dogId);
 
-    if (newBirthDate > DateOnly.FromDateTime(DateTime.Now))
-    {
-        while (newBirthDate > DateOnly.FromDateTime(DateTime.Now))
+        if (dogToUpdate == null)
         {
-            Console.WriteLine("The birth date cannot be in the future, please enter a valid birth date");
-            newBirthDate = DateOnly.Parse(Console.ReadLine());
+            Console.WriteLine("Dog with the given ID not found. Please enter a valid ID.");
+            return;
         }
-    }
 
-    dogToUpdate.SetBirthDate(newBirthDate);
+        Console.WriteLine("Enter the new name for the dog:");
+        string newName = Console.ReadLine();
 
-    Console.WriteLine("Enter the new breed for the dog:");
-    string newBreed = Console.ReadLine();
-    
-    if (string.IsNullOrWhiteSpace(newBreed))
-    {
-        while (string.IsNullOrWhiteSpace(newBreed))
+        if (string.IsNullOrWhiteSpace(newName))
         {
-            Console.WriteLine("The breed cannot be empty, please enter a valid breed");
-            newBreed = Console.ReadLine();
+            while (string.IsNullOrWhiteSpace(newName))
+            {
+                Console.WriteLine("The name cannot be empty, please enter a valid name");
+                newName = Console.ReadLine();
+            }
         }
-    }
 
-    dogToUpdate.SetBreed(newBreed);
+        dogToUpdate.SetName(newName);
 
-    Console.WriteLine("Enter the new color for the dog:");
-    string newColor = Console.ReadLine();
-    
-    if (string.IsNullOrWhiteSpace(newColor))
-    {
-        while (string.IsNullOrWhiteSpace(newColor))
+        Console.WriteLine("Enter the new birth date for the dog:");
+        DateOnly newBirthDate = DateOnly.Parse(Console.ReadLine());
+
+        if (newBirthDate > DateOnly.FromDateTime(DateTime.Now))
         {
-            Console.WriteLine("The color cannot be empty, please enter a valid color");
-            newColor = Console.ReadLine();
-        }
-    }
-
-    dogToUpdate.SetColor(newColor);
-
-    Console.WriteLine("Enter the new weight for the dog:");
-    double newWeight = double.Parse(Console.ReadLine());
-
-    if (newWeight <= 0)
-    {
-        while (newWeight <= 0)
+            while (newBirthDate > DateOnly.FromDateTime(DateTime.Now))
+            {
+                Console.WriteLine("The birth date cannot be in the future, please enter a valid birth date");
+                newBirthDate = DateOnly.Parse(Console.ReadLine());
+            }
+        }else if ( newBirthDate.GetType() != typeof(DateOnly))
         {
-            Console.WriteLine("The weight cannot be zero or negative, please enter a valid weight");
-            newWeight = double.Parse(Console.ReadLine());
+            while (newBirthDate.GetType() != typeof(DateOnly))
+            {
+                Console.WriteLine("The answer cannot be empty, please enter a valid answer in the format dd/mm/yyyy");
+                newBirthDate = DateOnly.Parse(Console.ReadLine());
+            }
         }
-    }
 
-    dogToUpdate.SetWeightInKg(newWeight);
+        dogToUpdate.SetBirthDate(newBirthDate);
 
-    Console.WriteLine("Enter the new castrated status for the dog:  (0 = no, 1 = yes)");
-    bool newCastrated = bool.Parse(Console.ReadLine());
+        Console.WriteLine("Enter the new breed for the dog:");
+        string newBreed = Console.ReadLine();
 
-    if (newCastrated == null)
-    {
-        while (newCastrated == null)
+        if (string.IsNullOrWhiteSpace(newBreed))
         {
-            Console.WriteLine("The castrated status cannot be empty, please enter a valid castrated status (0 = no, 1 = yes)");
-            newCastrated = bool.Parse(Console.ReadLine());
+            while (string.IsNullOrWhiteSpace(newBreed))
+            {
+                Console.WriteLine("The breed cannot be empty, please enter a valid breed");
+                newBreed = Console.ReadLine();
+            }
         }
-    }
 
-    dogToUpdate.SetIsCastrated(newCastrated);
+        dogToUpdate.SetBreed(newBreed);
+
+        Console.WriteLine("Enter the new color for the dog:");
+        string newColor = Console.ReadLine();
+
+        if (string.IsNullOrWhiteSpace(newColor))
+        {
+            while (string.IsNullOrWhiteSpace(newColor))
+            {
+                Console.WriteLine("The color cannot be empty, please enter a valid color");
+                newColor = Console.ReadLine();
+            }
+        }
+
+        dogToUpdate.SetColor(newColor);
+
+        Console.WriteLine("Enter the new weight for the dog:");
+        double newWeight = double.Parse(Console.ReadLine());
+
+        if (newWeight <= 0)
+        {
+            while (newWeight <= 0)
+            {
+                Console.WriteLine("The weight cannot be zero or negative, please enter a valid weight");
+                newWeight = double.Parse(Console.ReadLine());
+            }
+        }
+
+        dogToUpdate.SetWeightInKg(newWeight);
+
+        Console.WriteLine("Enter the new castrated status for the dog:  (True or False)");
+        bool newCastrated = bool.Parse(Console.ReadLine());
+
+        if (newCastrated == null)
+        {
+            while (newCastrated == null)
+            {
+                Console.WriteLine("The castrated status cannot be empty, please enter a valid castrated status (True or False)");
+                newCastrated = bool.Parse(Console.ReadLine());
+            }
+        }
+
+        dogToUpdate.SetIsCastrated(newCastrated);
 
 
-    Console.WriteLine("Enter the new temperament for the dog:");
-    Console.WriteLine(@"    
+        Console.WriteLine("Enter the new temperament for the dog:");
+        Console.WriteLine(@"    
             1. Shy
             2. Friendly
             3. Aggressive
@@ -172,40 +179,40 @@ public class VeterinaryClinic
                 break;
         }
 
-    dogToUpdate.Temperament = newTemperament;
+        dogToUpdate.Temperament = newTemperament;
 
 
-    Console.WriteLine("Enter the new microchip number for the dog:");
-    string newMicrochipNumber = Console.ReadLine();
-    
-    if (string.IsNullOrWhiteSpace(newMicrochipNumber))
-    {
-        while (string.IsNullOrWhiteSpace(newMicrochipNumber))
+        Console.WriteLine("Enter the new microchip number for the dog:");
+        string newMicrochipNumber = Console.ReadLine();
+
+        if (string.IsNullOrWhiteSpace(newMicrochipNumber))
         {
-            Console.WriteLine("The microchip number cannot be empty, please enter a valid microchip number");
-            newMicrochipNumber = Console.ReadLine();
+            while (string.IsNullOrWhiteSpace(newMicrochipNumber))
+            {
+                Console.WriteLine("The microchip number cannot be empty, please enter a valid microchip number");
+                newMicrochipNumber = Console.ReadLine();
+            }
         }
-    }
 
-    dogToUpdate.MicrochipNumber = newMicrochipNumber;
+        dogToUpdate.MicrochipNumber = newMicrochipNumber;
 
-    Console.WriteLine("Enter the new bark volume for the dog:");
-    string newBarkVolume = Console.ReadLine();
-    
-    if (string.IsNullOrWhiteSpace(newBarkVolume))
-    {
-        while (string.IsNullOrWhiteSpace(newBarkVolume))
+        Console.WriteLine("Enter the new bark volume for the dog:");
+        string newBarkVolume = Console.ReadLine();
+
+        if (string.IsNullOrWhiteSpace(newBarkVolume))
         {
-            Console.WriteLine("The bark volume cannot be empty, please enter a valid bark volume");
-            newBarkVolume = Console.ReadLine();
+            while (string.IsNullOrWhiteSpace(newBarkVolume))
+            {
+                Console.WriteLine("The bark volume cannot be empty, please enter a valid bark volume");
+                newBarkVolume = Console.ReadLine();
+            }
         }
-    }
-    
 
-    dogToUpdate.BarkVolume = newBarkVolume;
 
-    Console.WriteLine("Enter the new coat type for the dog:");
-    Console.WriteLine(@"
+        dogToUpdate.BarkVolume = newBarkVolume;
+
+        Console.WriteLine("Enter the new coat type for the dog:");
+        Console.WriteLine(@"
             1. short
             2. medium
             3. long
@@ -237,18 +244,158 @@ public class VeterinaryClinic
                 break;
         }
 
-    dogToUpdate.CoatType = newCoatType;
+        dogToUpdate.CoatType = newCoatType;
 
-    Console.WriteLine("The dog has been successfully updated");
+        Console.WriteLine("The dog has been successfully updated");
 
     }
 
-    public void showALlDogs()
+    public void UpdateCat()
     {
-        foreach (var dog in Dogs)
+
+        Console.WriteLine("Enter the Id of the animal you want to update");
+        int catId = int.Parse(Console.ReadLine());
+
+        if (catId <= 0)
         {
-            dog.ShowInfo();
+            Console.WriteLine("Invalid cat ID. Please enter a valid ID.");
+            return;
         }
+
+        Cat catToUpdate = Cats.FirstOrDefault(cat => cat.GetId() == catId);
+
+        if (catToUpdate == null)
+        {
+            Console.WriteLine("Cat not found. Please enter a valid ID.");
+            return;
+        }
+
+        Console.WriteLine("Enter the new name for the cat:");
+        string newName = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(newName))
+        {
+            while (string.IsNullOrWhiteSpace(newName))
+            {
+                Console.WriteLine("The name cannot be empty, please enter a valid name");
+                newName = Console.ReadLine();
+            }
+        }
+
+        catToUpdate.SetName(newName);   
+        
+
+        Console.WriteLine("Enter the new birth date of the cat in the format dd/mm/yyyy");
+        DateOnly newBirthDate = DateOnly.Parse(Console.ReadLine());
+        if (newBirthDate > DateOnly.FromDateTime(DateTime.Now))
+        {
+            Console.WriteLine("The cat cannot be born in the future, please enter a valid birth date");
+            newBirthDate = DateOnly.Parse(Console.ReadLine());
+        } else if ( newBirthDate.GetType() != typeof(DateOnly))
+        {
+            while (newBirthDate.GetType() != typeof(DateOnly))
+            {
+                Console.WriteLine("The answer cannot be empty, please enter a valid answer in the format dd/mm/yyyy");
+                newBirthDate = DateOnly.Parse(Console.ReadLine());
+            }
+        }
+
+        catToUpdate.SetBirthDate(newBirthDate);
+        
+
+        Console.WriteLine("Enter the new breed for the cat:");
+        string newBreed = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(newBreed))
+        {
+            while (string.IsNullOrWhiteSpace(newBreed))
+            {
+                Console.WriteLine("The breed cannot be empty, please enter a valid breed");
+                newBreed = Console.ReadLine();
+            }
+        }
+
+        catToUpdate.SetBreed(newBreed);
+
+
+        Console.WriteLine("Enter the new color for the cat:");
+        string newColor = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(newColor))
+        {
+            while (string.IsNullOrWhiteSpace(newColor))
+            {
+                Console.WriteLine("The color cannot be empty, please enter a valid color");
+                newColor = Console.ReadLine();
+            }
+        }
+
+        catToUpdate.SetColor(newColor);
+
+
+        Console.WriteLine("Enter the new weight in kg for the cat:");
+        double newWeightInKg = double.Parse(Console.ReadLine());
+        if (newWeightInKg <= 0)
+        {
+            while (newWeightInKg <= 0)
+            {
+                Console.WriteLine("The weight cannot be empty, please enter a valid weight");
+                newWeightInKg = double.Parse(Console.ReadLine());
+            }
+        }
+
+        catToUpdate.SetWeightInKg(newWeightInKg);
+
+
+        Console.WriteLine("Enter the new castrated status for the Cat:  (True or False)");
+        bool newCastrated = bool.Parse(Console.ReadLine());
+
+        if (newCastrated == null)
+        {
+            while (newCastrated == null)
+            {
+                Console.WriteLine("The castrated status cannot be empty, please enter a valid castrated status (True or False)");
+                newCastrated = bool.Parse(Console.ReadLine());
+            }
+        }
+
+        catToUpdate.SetIsCastrated(newCastrated);
+
+        catToUpdate.BreedingStatus = newCastrated;
+
+        Console.WriteLine("Enter the new FurLength for the cat:");
+        Console.WriteLine(@"
+            1. short
+            2. medium
+            3. long
+            4. no hair
+                        ");
+        int choice2 = int.Parse(Console.ReadLine());
+        string newFurLength = null;
+        if (choice2 > 4 || choice2 < 1 || choice2.ToString() == null)
+        {
+            while (choice2 > 4 || choice2 < 1 || choice2.ToString() == null)
+            {
+                Console.WriteLine("The answer cannot be empty, please enter a valid answer");
+                choice2 = int.Parse(Console.ReadLine());
+            }
+        }
+        switch (choice2)
+        {
+            case 1:
+                newFurLength = "short";
+                break;
+            case 2:
+                newFurLength = "medium";
+                break;
+            case 3:
+                newFurLength = "long";
+                break;
+            case 4:
+                newFurLength = "no hair";
+                break;
+        }
+
+        catToUpdate.FurLength =newFurLength;
+
+        Console.WriteLine("Cat updated successfully");
     }
     
 }
