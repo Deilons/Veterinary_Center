@@ -34,19 +34,16 @@ public class VeterinaryClinic
     {
         Cats.Add(newCat);
     }
-    /*
+
     public void UpdateDog(Dog dog)
     {
         Console.WriteLine("Enter the Id of the animal you want to update");
         int AnimalId = int.Parse(Console.ReadLine());
         
-        if (dog.Id == AnimalId)
+        if (dog.GetId() == AnimalId)
         {
-            Console.WriteLine("Enter the new name of the animal");
-            string newName = Console.ReadLine();
-            dog.Name = newName;
+            
         }
     }
-    */
 
 }
