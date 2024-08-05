@@ -12,9 +12,9 @@ public class VeterinaryClinic
 
     public string Address { get; set; }
 
-    public List<Dog> Dogs = new List<Dog>();
+    public static List<Dog> Dogs { get; set; } = new List<Dog>();
 
-    public List<Cat> Cats = new List<Cat>();
+    public static List<Cat> Cats { get; set; } = new List<Cat>(); 
 
     // constructor
     public VeterinaryClinic(string name, string address)
@@ -449,47 +449,48 @@ public class VeterinaryClinic
     {
         foreach (var cat in Cats)
         {
-            Console.WriteLine(cat);
+            cat.ShowInfo();
         }
         foreach (var dog in Dogs)
         {
-            Console.WriteLine(dog);
+            dog.ShowInfo();
         }
     }
 
     public void ShowAnimals(string animalType)
     {
-        if (animalType == "cat")
-        {
-            foreach (var cat in Cats)
-            {
-                Console.WriteLine(cat);
-            }
-        }
-        else if (animalType == "dog")
+        if (animalType == "dog")
         {
             foreach (var dog in Dogs)
             {
-                Console.WriteLine(dog);
+                dog.ShowInfo();
+            }
+        }
+        else if (animalType == "cat")
+        {
+            foreach (var cat in Cats)
+            {
+                cat.ShowInfo();
             }
         }
     }
 
     public void ShowAnimalByName(string PatientName)
     {
-        foreach (var cat in Cats)
+    
+        Cat cat = Cats.FirstOrDefault(c => c.GetName() == PatientName);
+
+        if (cat != null)
         {
-            if (cat.GetName() == PatientName)
-            {
-                Console.WriteLine(cat);
-            }
+            cat.ShowInfo();
         }
-        foreach (var dog in Dogs)
+
+        Dog dog = Dogs.FirstOrDefault(d => d.GetName() == PatientName);
+
+        if (dog != null)
         {
-            if (dog.GetName() == PatientName)
-            {
-                Console.WriteLine(dog);
-            }
+            dog.ShowInfo();
         }
     }
 }
+
