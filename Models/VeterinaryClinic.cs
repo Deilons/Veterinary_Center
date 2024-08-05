@@ -473,19 +473,18 @@ public class VeterinaryClinic
         }
     }
 
-// show animal by id provicional
-    public void ShowAnimal(int idPatient)
-    {
+    public void ShowAnimalByName(string PatientName)
+    {   
         foreach (var cat in Cats)
         {
-            if (cat.GetId() == idPatient)
+            if (cat.GetName() == PatientName)
             {
                 Console.WriteLine(cat);
             }
         }
         foreach (var dog in Dogs)
         {
-            if (dog.GetId() == idPatient)
+            if (dog.GetName() == PatientName)
             {
                 Console.WriteLine(dog);
             }
