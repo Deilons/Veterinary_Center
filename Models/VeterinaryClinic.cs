@@ -492,5 +492,39 @@ public class VeterinaryClinic
             dog.ShowInfo();
         }
     }
+    public void basicInformation()
+    {
+        Console.WriteLine("Write the name of the animal you want to know more about:");
+        string name = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            while (string.IsNullOrWhiteSpace(name))
+            {
+                Console.WriteLine("The name cannot be empty, please enter a valid name");
+                name = Console.ReadLine();
+            }
+        }
+
+        Cat cat = Cats.FirstOrDefault(c => c.GetName() == name);
+        if (cat != null)
+        {
+            cat.BasicReview();
+            Console.WriteLine("The age of the cat in months: " + cat.GetAgeInMonths());
+            Console.WriteLine("Do you want to castrate this animal? [Y/N]");
+            string answer = Console.ReadLine();
+            if (answer == "Y" || answer == "y")
+            {
+                cat.CastrateAnimal();
+            }
+            Console.WriteLine("Do you want to hairdress this animal? [Y/N]");
+            answer = Console.ReadLine();
+            if (answer == "Y" || answer == "y")
+            {
+                cat.Hairdress();
+            }
+
+        }
+        
+    }
 }
 

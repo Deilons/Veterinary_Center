@@ -64,6 +64,8 @@ public abstract class Animal
             return;
         }
         IsCastrated = true;
+
+        Console.WriteLine("The animal has been castrated");
     }
 
     public int GetId()

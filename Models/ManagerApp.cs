@@ -343,12 +343,4 @@ public class ManagerApp
         Console.ReadKey();
     }
 
-    public void mostrargatos(List<Cat> cats)
-    {
-        foreach (var item in cats)
-        {
-            Console.WriteLine(item);
-        }
-    }
-
 }

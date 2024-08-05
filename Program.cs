@@ -8,10 +8,10 @@ internal class Program
         Console.Clear();
 
         bool isRunning = true;
-        
+
         while (isRunning)
-        {   
-            var veterinaryClinic = new VeterinaryClinic( "Vet Clinic", "123 Main Street");
+        {
+            var veterinaryClinic = new VeterinaryClinic("Vet Clinic", "123 Main Street");
 
             Console.Clear();
             ManagerApp.ShowHeader();
@@ -30,8 +30,8 @@ internal class Program
             ║            [7] Show all registered patients      ║
             ║            [8] Show animals by type              ║
             ║            [9] Search an animal by name          ║
-            ║            [10] Exit                             ║
-            ║                                                  ║
+            ║            [10] More info about a animal         ║
+            ║            [11] Exit                             ║
             ║                                                  ║
             ╚══════════════════════════════════════════════════╝
 
@@ -110,49 +110,30 @@ internal class Program
 
                 case 10:
                     Console.Clear();
+                    veterinaryClinic.basicInformation();
+                    ManagerApp.ShowSeparator();
+                    ManagerApp.Continue();
+                    break;
+
+                case 11:
+                    Console.Clear();
                     ManagerApp.ShowSeparator();
                     Console.WriteLine("Are you sure you want to exit? (y/n)");
                     ManagerApp.ShowSeparator();
 
                     string exit = Console.ReadLine();
                     if (exit == "y")
-                    {   
+                    {
                         Console.WriteLine("Goodbye!");
                         ManagerApp.ShowFooter();
                         isRunning = false;
                     }
                     break;
-
-                case 11:
-                    Console.Clear();
-
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
                     ManagerApp.Continue();
                     break;
-
             }
         }
-        
-/*
-                    var cat = new Cat(1,"Fluffy", DateOnly.FromDateTime(DateTime.Now),"Domestic Short Hair", "Black", 8 , false, true, "long");
-                    
-                    cat.ShowInfo();
-
-                    cat.BasicReview();
-
-                    cat.CastrateAnimal();
-
-                    cat.Hairdress();
-
-                    cat.ShowInfo();
-
-                    cat.CastrateAnimal();
-                    
-                    Console.Write(cat.GetAgeInMonths());
-
-                    cat.ShowInfo();
-*/
-        
     }
-}   
+}

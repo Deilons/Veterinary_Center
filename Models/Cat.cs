@@ -57,7 +57,7 @@ public class Cat : Animal
         else
         {
             Console.WriteLine("Hairdress successfully");
-            FurLength = "Corto";
+            FurLength = "short";
         }
     }
 }
