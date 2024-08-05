@@ -393,9 +393,56 @@ public class VeterinaryClinic
                 break;
         }
 
-        catToUpdate.FurLength =newFurLength;
+        catToUpdate.FurLength = newFurLength;
 
         Console.WriteLine("Cat updated successfully");
     }
-    
+    public void DeleteDog()
+    {
+        Console.WriteLine("Enter the Id of the dog you want to delete:");
+        int dogId = int.Parse(Console.ReadLine());
+
+        if (dogId <= 0)
+        {
+            Console.WriteLine("Invalid dog ID. Please enter a valid ID.");
+            return;
+        }
+
+        Dog dogToDelete = Dogs.FirstOrDefault(dog => dog.GetId() == dogId);
+
+        if (dogToDelete == null)
+        {
+            Console.WriteLine("Dog with the given ID not found. Please enter a valid ID.");
+            return;
+        }
+
+        Dogs.Remove(dogToDelete);
+        Console.WriteLine("Dog deleted successfully");
+    }
+
+    public void DeleteCat()
+    {
+        Console.WriteLine("Enter the Id of the cat you want to delete:");
+        int catId = int.Parse(Console.ReadLine());
+
+        if (catId <= 0)
+        {
+            Console.WriteLine("Invalid cat ID. Please enter a valid ID.");
+            return;
+        }
+
+        Cat catToDelete = Cats.FirstOrDefault(cat => cat.GetId() == catId);
+
+        if (catToDelete == null)
+        {
+            Console.WriteLine("Cat with the given ID not found. Please enter a valid ID.");
+            return;
+        }
+
+        Cats.Remove(catToDelete);
+        Console.WriteLine("Cat deleted successfully");
+    }
+
+        
+
 }
