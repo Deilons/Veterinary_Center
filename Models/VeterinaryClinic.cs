@@ -522,7 +522,25 @@ public class VeterinaryClinic
             {
                 cat.Hairdress();
             }
+        }
 
+        Dog dog = Dogs.FirstOrDefault(d => d.GetName() == name);
+        if (dog != null)
+        {
+            dog.BasicReview();
+            Console.WriteLine("The age of the dog in months: " + dog.GetAgeInMonths());
+            Console.WriteLine("Do you want to castrate this animal? [Y/N]");
+            string answer = Console.ReadLine();
+            if (answer == "Y" || answer == "y")
+            {
+                dog.CastrateAnimal();
+            }
+            Console.WriteLine("Do you want to hairdress this animal? [Y/N]");
+            answer = Console.ReadLine();
+            if (answer == "Y" || answer == "y")
+            {
+                dog.Hairdress();
+            }
         }
         
     }
